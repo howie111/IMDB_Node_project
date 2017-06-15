@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../public/styles.css">  
+        <link rel="stylesheet" href="/styles.css">    
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>          
+    </head>
+    <body>
+       <video playsinline autoplay muted loop id="videobackground">
+        <source src ="../imgs/NYC-Traffic.mp4" type="video/mp4">
+        <source src ="../imgs/NYC-Traffic.webm" type="video/webm">
+       </video>  
+        <div class="searchcontainer" id="changemode">
+          <div class = "row">
+            <h1 class="text-center ">Movie Database</h1>
+         </div> 
+        </div>
+   
+       <div id="f1_container">
+           <div id="f1_card">
+              <div class="front face">
+                <form method="POST" class="form-wrapper" action="/search">
+                
+                <input  autofocus="autofocus" type="text" class="searchbar" name="test"  placeholder=" Search for titles from local database">
+                <button class="btn_submit" type="submit">Search!</button> 
+                
+                </form>
+              </div>
+              <div class="back face">
+                <form method="POST" class="form-wrapper" action="/apisearch">
+                
+                <input type="text" autofocus="autofocus" name="test" class="searchbar" placeholder=" Search for titles from IMDB">
+                <button class="btn_submit" type="submit">Search!</button>
+                
+                </form>
+              </div>
+           </div>
+        </div>
+        <!--
+           <% for (var i =0;i<movieObj.length;i++){%>
+            <a class="movie-link" href="/movie/<%= movieObj[i].id %>" >
+            <div class="media movie-list-item">
+                <div class="media-left">
+                    <div class="poster-container">
+                        <img class="media-object movie-poster" src=<%= movieObj[i].poster %> />
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <%= movieObj[i].title%>
+                        <span class="badge"><%= movieObj[i].imdbRating %></span>
+                    </h4>
+                    <div>
+                        <%= movieObj[i].plot %>
+                    </div>
+                    <div class="released-date">
+                        Released: <%= movieObj[i].released%>
+                    </div>
+                </div>
+            </div>
+            </a>
+            
+            <% } %>
+
+        </div>
+        -->
+     <div class="container_slideshow">
+          <div id="carousel">
+       <% for (var i =0;i<movieObj.length;i++){%>           
+			<figure><a class="movie-link" href="/movie/<%= movieObj[i].id %>" > <img src=<%=movieObj[i].poster%> /></a></figure>
+		<% } %>
+          </div>
+     </div>
+    </body>
+    <script>
+        $(document).ready(function(){
+            $('#changemode').mouseenter(function(){
+                $('#f1_card').toggleClass("hovered");
+            })
+
+
+        })
+     </script>
+</html>
+

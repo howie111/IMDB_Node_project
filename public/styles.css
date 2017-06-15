@@ -1,0 +1,277 @@
+html { margin: 0px; padding: 0px; }
+body{
+  padding:0;
+  margin:0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 100%;
+
+}
+.movie-list-item {
+  padding: 10px;
+  cursor: pointer;
+}
+.movie-list-item:hover {
+  background-color: #eee;
+}
+.movie-list-item .poster-container {
+  height: 200px;
+  width: 150px;
+}
+.movie-list-item .movie-poster {
+  max-height: 200px;
+  max-width: 150px;
+}
+
+.released-date {
+  margin-top: 20px;
+}
+#movie-details .movie-poster {
+  max-height: 350px;
+  max-width: 262px;
+}
+#movie-details .buttons {
+  text-align: center;
+}
+.movie-link {
+  color: inherit;
+}
+.movie-link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*full screen video background*/
+#videobackground{
+position: fixed;
+top:50%;
+left: 50%;
+min-width: 100%;
+min-height: 100%;
+width:auto;
+height: auto;
+z-index: -100;
+-ms-transform: translateX(-50%) translateY(-50%);
+-moz-transform: translateX(-50%) translateY(-50%);
+-webkit-transform: translateX(-50%) translateY(-50%);
+transform: translateX(-50%) translateY(-50%);
+/*background: url('../imgs/NYC-Traffic.jpg') no-repeat;*/
+/*background-size:cover;*/
+transition: 1s opacity;
+}
+.searchcontainer{
+  margin: 20px;
+  color:white;
+  
+}
+/**  search bar **/
+.form-wrapper{
+ position: relative;
+ width: 500px;
+ padding:15px;
+ margin: 52px auto 52px auto;
+ /*background: #444;*/
+ /*box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
+*/
+}
+.searchbar{
+ width: 351px;
+ height: 44px;
+ 
+ font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+ border: 0;
+ background: #eee;
+ -moz-border-radius: 3px 0 0 3px;
+ -webkit-border-radius: 3px 0 0 3px;
+ border-radius: 3px 0 0 3px;      
+}
+.btn_submit{
+  
+  overflow: visible;
+  position: relative;
+  float: right;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 44px;
+  width: 25%;
+  font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  color: #fff;
+  text-transform: uppercase;
+  background: #00A5CF;
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0 3px 3px 0;
+  border-radius: 0 3px 3px 0;      
+}
+.form-wrapper button:hover{		
+        background: #2EB5D7;
+    }	
+#changemode:hover{
+  filter:blur(2px);
+}
+#f1_container {
+  position: relative;
+  margin: 10px auto;
+  width: 600px;
+  height: 200px;
+  z-index: 1;
+  
+}
+#f1_container {
+  perspective: 1000;
+}
+#f1_card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 1.0s linear;
+}
+.hovered, #howie:hover + #f1_container #f1_card {
+  transform: rotateX(180deg);
+}
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  text-align: center;
+  padding:10px;
+  box-sizing: border-box;
+  display: block;
+}
+.face.back {
+  position: absolute;
+  display: block;
+  transform: rotateX(180deg);
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center; 
+}
+/*** tooptip box **/
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+}
+.container_slideshow{
+	margin: 4% auto;
+	width: 210px;
+	height: 140px;
+	position: relative;
+	perspective: 1000px;
+}
+#carousel{
+  border: 1px solid darkblue;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	transform-style: preserve-3d;
+	animation: rotation 20s infinite linear;
+  
+}
+#carousel:hover{
+	animation-play-state: paused;
+}
+#carousel figure{
+	display: block;
+	position: absolute;
+	width: 90%;
+	height: 50%px;;
+	left: 10px;
+	top: 10px;
+	background: black;
+	overflow: hidden;
+	border: solid 5px black;
+}
+#carousel figure:nth-child(1){transform: rotateY(0deg) translateZ(288px);}
+#carousel figure:nth-child(2) { transform: rotateY(36deg) translateZ(288px);}
+#carousel figure:nth-child(3) { transform: rotateY(72deg) translateZ(288px);}
+#carousel figure:nth-child(4) { transform: rotateY(108deg) translateZ(288px);}
+#carousel figure:nth-child(5) { transform: rotateY(144deg) translateZ(288px);}
+#carousel figure:nth-child(6) { transform: rotateY(180deg) translateZ(288px);}
+#carousel figure:nth-child(7) { transform: rotateY(216deg) translateZ(288px);}
+#carousel figure:nth-child(8) { transform: rotateY(252deg) translateZ(288px);}
+#carousel figure:nth-child(9) { transform: rotateY(288deg) translateZ(288px);}
+#carousel figure:nth-child(10) { transform: rotateY(324deg) translateZ(288px);}
+img{
+	-webkit-filter: grayscale(1);
+	cursor: pointer;
+	transition: all .5s ease;
+  max-width: 100%;
+}
+img:hover{
+	-webkit-filter: grayscale(0);
+  transform: scale(1.2,1.2);
+}
+@keyframes rotation{
+	from{
+		transform: rotateY(0deg);
+	}
+	to{
+		transform: rotateY(360deg);
+	}
+}
+/***  header ****/
+header{
+height:16%;
+background-color: #414347;
+width:100%;
+z-index: -100;
+top:-20px;
+display: inline-block;
+
+}
+header h1{
+  color: white;
+  left: 44%;
+  position: relative;
+  top:20%;
+}
+.backbtn{
+position: relative;
+top:-25%;
+left:90%;
+}
+i:hover{
+  transform: scale(1.5)
+}
+/***footer ****/
+footer{
+position: absolute;
+height: 16%;
+background-color: #414347;
+width: 100%;
+}
+.container{
+  min-height: 80%;
+
+
+}
+.trailer{
+  width:600px;
+  height:360px;
+  position: relative;
+  background: #eee;
+  border: 20px solid transparent;
+  -moz-border-image: -moz-linear-gradient(top, white 0%, #2EB5D7 100%);
+  -webkit-border-image: -webkit-linear-gradient(top, white 0%, #2EB5D7 100%);
+  border-image: linear-gradient(to bottom, white 0%, black 100%);
+  border-image-slice: 1;
+   border-radius: 25px;
+   left: 25%;
+}
+
+.trailer video{
+  max-width: 100%;
+  max-height: 100%;
+}
+

@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
+    </head>
+    <body>
+        <header>
+        <h1>Search Results</h1>
+        <div class="backbtn">
+        <a href="/"<% %>><i class="fa fa-arrow-circle-o-left" style="font-size:42px; color:white"></i></a>
+        </div>
+        </header>
+        <div class="container">
+        <h1 class="text-center"></h1>
+        <% if(!error) { %>
+          <% for (var i =0;i<movieslists.Search.length;i++){%>
+            <a class="movie-link" href="/apimovie/<%= movieslists.Search[i].Title %>" >
+            <div class="media movie-list-item">
+                <div class="media-left">
+                    <div class="poster-container">        
+                        <img class="media-object movie-poster" src=<%= movieslists.Search[i].Poster !=='N/A'? movieslists.Search[i].Poster :'https://www.banglalink.net/sites/default/files/no-image1_0.png' %> />
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <%= movieslists.Search[i].Title%>
+                        <span class="badge"><%= movieslists.Search[i].imdbRating %></span>
+                    </h4>
+                    <div>
+                        <%= movieslists.Search[i].Plot %>
+                    </div>
+                    <div class="released-date">
+                        Released: <%= movieslists.Search[i].Year%>
+                    </div>
+                </div>
+            </div>
+            </a>
+        <% }} %>
+
+        </div>
+        <%if(error){ %>
+        <div class="modal" id="noresultModal" role="dialog">
+                <div class="modal-dialog modal-md">
+                <!-- modal content -->
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                       <h3>There is no such movie based on your reserach.Please try again</h3>
+                        </div>
+                        <!--  <button type="submit" class="btn btn-default" id="btn_save_new"> Save </button>   -->
+                        <div class="btn-container text-center">
+                        <a type="button" href="http://localhost:8080" class="btn btn-success" >Go Back</a>
+                        </div>               
+                    </div>
+                </div>
+        </div>
+       <%}%> 
+       <footer>      
+       </footer> 
+    </body>
+</html>
+

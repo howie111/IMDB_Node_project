@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        
+        <link rel="stylesheet" href="../../public/styles.css">         
+        <link rel="stylesheet" href="/styles.css">        
+    </head>
+    <body>
+        <header>
+        <h1>Movie Detail</h1>
+        <div class="backbtn">
+        <a href="/"<% %>><i class="fa fa-arrow-circle-o-left" style="font-size:42px; color:white"></i></a>
+        </div>
+        </header>
+        <div class="container">
+            <div id="movie-details">
+            <% if(movieItem.RTrating !== "N/A"){%>
+                 <div class=" trailer text-center">
+                    <video id="trailervideo"  controls>
+                     <source src=<%=movieItem.trailerUrl %> type="video/mp4">
+                    </video>
+                 </div>
+            <%}%>     
+                <h1 class="text-center"><%= movieItem.Title  %></h1>
+                <div class="row">
+                    <div class="col-xs-5">
+                        <img class="movie-poster" src=<%= movieItem.Poster !=='N/A'? movieItem.Poster :'https://www.banglalink.net/sites/default/files/no-image1_0.png' %> />
+                    <div class="row">
+                    <h4>Rotten Tomatoes Rating: <span class="badge"><%= movieItem.RTrating%> </span></h4>
+                    </div>
+                    </div>
+                   <div class="col-xs-7">
+                        <table class="table">
+                            <% let movieArr = Object.keys(movieItem); %>
+                            <%  for (var i=0;i<movieArr.length;i++){%>
+                            <tr>
+                                <td><%= movieArr[i]%></td>
+                                <td><%= movieItem[movieArr[i]]%></td>
+                            </tr>
+                            <% } %>
+                        </table>
+                    </div>    
+                </div>
+            </div>
+        </div>
+       <footer>      
+       </footer> 
+    </body>
+</html>
+
